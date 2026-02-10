@@ -1,0 +1,728 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>unpolished</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1fb459ad-1b23-8026-9ed3-d2702b9474ae" class="page mono"><header><img class="page-cover-image" src="unpolished/Frame_2147227672.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="unpolished/IMG_0736_2.heic"/></div><h1 class="page-title" dir="auto">unpolished</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2ee459ad-1b23-80b9-a9cb-eceb39942edb" class="">with little explanation </p></div><div style="display:contents" dir="auto"><div id="1fb459ad-1b23-8153-b270-ea6e00042794" class="column-list"><div style="display:contents" dir="auto"><div id="1fb459ad-1b23-813b-915e-cb0caa852daf" style="width:33.33333333333333%" class="column"><div style="display:contents" dir="auto"><p id="1fb459ad-1b23-8051-a12e-fd7f2574f5ff" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1fb459ad-1b23-80a4-8622-ca43b6ab9c00" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8121-a340-c55b427e5645"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8157-86ce-ffa41e94f1b5" class="image"><a href="unpolished/IMG_4464.heic"><img src="unpolished/IMG_4464.heic"/></a><figcaption>this carhart beanie and i saw all of japan together</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-80db-ba6b-f11264a4d440" class="image"><a href="unpolished/IMG_4961.heic"><img src="unpolished/IMG_4961.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8087-b923-c143ca40cbd5" class="image"><a href="unpolished/IMG_4404.heic"><img src="unpolished/IMG_4404.heic"/></a><figcaption>isabella was humbly lost 99% of the time</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-80f6-b65c-e61245d47a77" class="image"><a href="unpolished/IMG_5026.heic"><img src="unpolished/IMG_5026.heic"/></a><figcaption>^^^^^real design looks like </figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8086-999c-f05a655a63d7"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8036-97eb-f07947b8a7b1" class="image"><a href="unpolished/IMG_8961.heic"><img src="unpolished/IMG_8961.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8018-960e-ce9988fa4980"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-80af-92e5-fdc3381dd7a0" class="image"><a href="unpolished/c7351676-09da-48c1-ba8f-2fc76d2a643e.png"><img style="width:240px" src="unpolished/c7351676-09da-48c1-ba8f-2fc76d2a643e.png"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="21d459ad-1b23-802e-9cb1-f10fcfa4978d"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="21d459ad-1b23-8060-8b5f-f11fb9d902fb" class="image"><a href="unpolished/logo_(5).png"><img style="width:689.6354370117188px" src="unpolished/logo_(5).png"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="21d459ad-1b23-80dd-a2c8-d12e07d861cc" class="image"><a href="unpolished/Screenshot_2025-06-24_at_9.38.18_PM.png"><img style="width:240px" src="unpolished/Screenshot_2025-06-24_at_9.38.18_PM.png"/></a><figcaption>a meetup saga, pt 1 </figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2ea459ad-1b23-803d-9664-dc30a944b23f" class="image"><a href="unpolished/Screenshot_2026-01-16_at_10.01.21_AM.png"><img style="width:240px" src="unpolished/Screenshot_2026-01-16_at_10.01.21_AM.png"/></a><figcaption>pt. 2 not bad - perhaps i have a future in event organization </figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8093-8d58-fe6fa3bc525e"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-80ff-8470-da94c0109608" class="image"><a href="unpolished/IMG_3378.heic"><img src="unpolished/IMG_3378.heic"/></a><figcaption>i decided it was imperative i bike all the way up to battery spenser alone with a bike i had no lock for and carried up myself. the audacity i have is absurd</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2ea459ad-1b23-8061-b7f3-f475bdd3a393" class="image"><a href="unpolished/_.heic"><img src="unpolished/_.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="2e9459ad-1b23-802a-baf8-dfc828921c8b"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-803a-8e98-cfee5a4ad39c" class="image"><a href="unpolished/IMG_5033.heic"><img style="width:2448px" src="unpolished/IMG_5033.heic"/></a><figcaption>why am i like this</figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-80ad-a5dc-f53bc302218d"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-8054-a248-f593ffc27c10" class="image"><a href="unpolished/IMG_2037.heic"><img src="unpolished/IMG_2037.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-806f-9a75-cad1491126dd" class="image"><a href="unpolished/IMG_1998.heic"><img src="unpolished/IMG_1998.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-807a-b2a7-cd0f687832e3" class="image"><a href="unpolished/IMG_2106.heic"><img src="unpolished/IMG_2106.heic"/></a><figcaption>a lot of tall buildings were inspected by a sandiegian </figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-80d4-a85a-db5c25979953"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-81ab-9169-d3e609d2d400" class="image"><a href="unpolished/13D14CA5-D3BA-49F6-B025-471649164A14_3.jpeg"><img style="width:2316px" src="unpolished/13D14CA5-D3BA-49F6-B025-471649164A14_3.jpeg"/></a><figcaption>coasta rica collective</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-80eb-88ad-f5fedfbde7dd" class="image"><a href="unpolished/IMG_1171.heic"><img style="width:2316px" src="unpolished/IMG_1171.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-80dc-9f01-e0624eb18215"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-8009-9914-d82eccb11b01" class="image"><a href="unpolished/IMG_9050.heic"><img src="unpolished/IMG_9050.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-80d3-8674-ff873c581b3a" class="image"><a href="unpolished/06d0617c-b5d9-4dac-93b8-5a65fb284e0e.png"><img style="width:325.3333333333333px" src="unpolished/06d0617c-b5d9-4dac-93b8-5a65fb284e0e.png"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-817b-89f2-c55151c23da8"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-800d-b1ed-dbd5d136f902" class="image"><a href="unpolished/_.jpg"><img style="width:1440px" src="unpolished/_.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-81d3-b223-d12dc272d6f6" class="image"><a href="unpolished/FABBB030-8F40-4AD8-B03E-A908E172EBA8_2.jpg"><img style="width:415.6640625px" src="unpolished/FABBB030-8F40-4AD8-B03E-A908E172EBA8_2.jpg"/></a><figcaption>all in bed by 9pm </figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="2ee459ad-1b23-80a1-8c07-cd07e590c39d"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8085-a029-f3ffd9aea1a0" class="image"><a href="unpolished/IMG_4799.heic"><img style="width:288px" src="unpolished/IMG_4799.heic"/></a><figcaption>oh, good. monsters wont be in here</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8001-9139-d65dfbba59c6" class="image"><a href="unpolished/IMG_4672.heic"><img src="unpolished/IMG_4672.heic"/></a><figcaption>your sign</figcaption></figure></div></div></figure></div></div></div><div style="display:contents" dir="auto"><div id="1fb459ad-1b23-8139-a3ca-f665e0010f68" style="width:29.166666666666664%" class="column"><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8109-8d74-cdcfe0536850"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-81b3-96ba-f696edf75bd5" class="image"><a href="unpolished/IMG_5464_2.jpg"><img style="width:415.6640625px" src="unpolished/IMG_5464_2.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8069-ad29-f7b8726b5f02"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-8098-9b39-f59ac7f12060" class="image"><a href="unpolished/_%201.jpg"><img style="width:240px" src="unpolished/_%201.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-805d-8a78-e50cf7d83af6" class="image"><a href="unpolished/55e033a1-1d6d-4ac5-b570-1f18b57d0dee.png"><img style="width:357.9018612521151px" src="unpolished/55e033a1-1d6d-4ac5-b570-1f18b57d0dee.png"/></a><figcaption>^working with me looks like</figcaption></figure></div><div style="display:contents" dir="auto"><hr id="2ee459ad-1b23-80d6-995b-fcae3bdbbe71"/></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8079-8a1e-f6d017d0673a" class="image"><a href="unpolished/Screenshot_2026-01-20_at_2.04.54_PM.png"><img style="width:832px" src="unpolished/Screenshot_2026-01-20_at_2.04.54_PM.png"/></a><figcaption>when “drink water” has to be on the to-do AND highlighted</figcaption></figure></div><div style="display:contents" dir="auto"><p id="2ee459ad-1b23-80c3-b5f0-f6a55a99d63b" class="">
+</p></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-81c0-84ac-e545a82d53cc"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-81bb-ae76-c873524c5a06" class="image"><a href="unpolished/IMG_3882.heic"><img src="unpolished/IMG_3882.heic"/></a><figcaption>do these trees look oddly pixel perfect to you - or have i been working too much? </figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8099-baee-dc4880eba8aa"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-8072-9870-cbc45be69637" class="image"><a href="unpolished/IMG_0798.heic"><img style="width:2448px" src="unpolished/IMG_0798.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8010-b896-e25e68cc28f4"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-808a-a245-d03f12259c1a" class="image"><a href="unpolished/IMG_2194.heic"><img src="unpolished/IMG_2194.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-808d-9076-fa617f5a02c4" class="image"><a href="unpolished/1705378171596_filtered.jpg"><img style="width:3024px" src="unpolished/1705378171596_filtered.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8142-8fdc-d5298014c1ea"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8197-9a27-d1536491b752" class="image"><a href="unpolished/IMG_7626.jpg"><img style="width:2315px" src="unpolished/IMG_7626.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="2ee459ad-1b23-804d-b042-e592eeced007"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-80cb-aae6-efb23014b7c8" class="image"><a href="unpolished/IMG_4674.heic"><img style="width:2315px" src="unpolished/IMG_4674.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-805c-80ea-ddcbec49c11e"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-808a-8c0c-e2a89980d75c" class="image"><a href="unpolished/6C9B58A3-B2B9-423C-899C-931BF718BF78.jpg"><img style="width:462.328125px" src="unpolished/6C9B58A3-B2B9-423C-899C-931BF718BF78.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8065-8fa0-ed28cd688f3e"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-804b-88d4-f46a87d37731" class="image"><a href="unpolished/IMG_3798.heic"><img style="width:3024px" src="unpolished/IMG_3798.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8082-a86f-f2066d10339c" class="image"><a href="unpolished/1705377596362_filtered.jpg"><img style="width:3024px" src="unpolished/1705377596362_filtered.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8065-92da-fcbea1e0e229"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-80f3-ba92-f04021ca8428" class="image"><a href="unpolished/70ea8e2c-5ae5-4642-8e6a-bc9d22ef8660.png"><img style="width:283.68794326241135px" src="unpolished/70ea8e2c-5ae5-4642-8e6a-bc9d22ef8660.png"/></a><figcaption>xmas by the beach looks like</figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8061-9286-c41248c7fd93"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8038-8469-f20a6153799e" class="image"><a href="unpolished/IMG_8950.heic"><img style="width:288px" src="unpolished/IMG_8950.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-80f5-822b-c298b7f5be9e"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-80d6-a019-fadbd3d5042f" class="image"><a href="unpolished/IMG_5560.gif"><img style="width:480px" src="unpolished/IMG_5560.gif"/></a><figcaption>this speaks for itself</figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-807f-b602-f6748700814d"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-808e-97a5-d652f8d0ccf2" class="image"><a href="unpolished/281FD07B-168B-457A-A241-C4790649A01D.jpg"><img style="width:462.328125px" src="unpolished/281FD07B-168B-457A-A241-C4790649A01D.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-801b-9ab0-c66c8f062de9" class="image"><a href="unpolished/6CDB6730-87F8-4789-BBD3-0670A1AFCC03.jpg"><img style="width:462.328125px" src="unpolished/6CDB6730-87F8-4789-BBD3-0670A1AFCC03.jpg"/></a><figcaption>he lives a simple life </figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8083-8ad5-cb9d350a74ab" class="image"><a href="unpolished/IMG_0402.heic"><img src="unpolished/IMG_0402.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8091-ae90-ebc8a22497c6" class="image"><a href="unpolished/IMG_0272.heic"><img style="width:192px" src="unpolished/IMG_0272.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-80e1-86e9-f921220dce51"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-8091-84a2-f7169193c1d9" class="image"><a href="unpolished/IMG_5499.heic"><img style="width:432px" src="unpolished/IMG_5499.heic"/></a><figcaption>POV: adult halloween</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-8039-8c5b-d77d186c0333" class="image"><a href="unpolished/C3775956-021C-4C04-854D-D0B400A42D1B.jpg"><img style="width:1440px" src="unpolished/C3775956-021C-4C04-854D-D0B400A42D1B.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-8096-accf-fab87dd02838" class="image"><a href="unpolished/BE6C6901-C8B2-410D-BCA8-031886737A4F.jpg"><img style="width:1440px" src="unpolished/BE6C6901-C8B2-410D-BCA8-031886737A4F.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8098-844d-cc9c0427575b"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-80d2-be7f-c9d526e34420" class="image"><a href="unpolished/IMG_8183.heic"><img style="width:2448px" src="unpolished/IMG_8183.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-8054-9727-c79572055f41" class="image"><a href="unpolished/IMG_6646.heic"><img style="width:325.3333333333333px" src="unpolished/IMG_6646.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-80b0-ba23-f21f32802592"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-8067-b544-f268865c21f9" class="image"><a href="unpolished/IMG_8344.heic"><img style="width:2448px" src="unpolished/IMG_8344.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8078-bc63-f4eeb94b28d0" class="image"><a href="unpolished/IMG_0030.heic"><img src="unpolished/IMG_0030.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="auto"><p id="204459ad-1b23-8039-bf77-ddab2564220e" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="1fb459ad-1b23-8175-9dc6-eeb2c9e77271" style="width:37.499999999999986%" class="column"><div style="display:contents" dir="auto"><p id="1fb459ad-1b23-8055-9607-db59b4754466" class="">
+</p></div><div style="display:contents" dir="auto"><p id="1fb459ad-1b23-80f6-b602-ef5134e1f14e" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-81b3-9206-c968303fad1d"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8122-81fb-e9eb5130aee2" class="image"><a href="unpolished/IMG_0617.heic"><img style="width:480px" src="unpolished/IMG_0617.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-80f2-a84a-e0528d34cf4d" class="image"><a href="unpolished/IMG_5159.heic"><img src="unpolished/IMG_5159.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ea459ad-1b23-80fc-a54f-fcdfb6b8f2ff" class="image"><a href="unpolished/IMG_4561.heic"><img src="unpolished/IMG_4561.heic"/></a><figcaption>look it’s me </figcaption></figure></div></div></figure></div><div style="display:contents" dir="auto"><p id="204459ad-1b23-80fd-b689-fdf46b6d9516" class="">
+</p></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-80a7-91b2-f8d7045cd5cc"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-804f-adff-e91a6d1ac8fa" class="image"><a href="unpolished/IMG_9949.heic"><img src="unpolished/IMG_9949.heic"/></a><figcaption>my aura is deep orange and red</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8019-b877-c84d26b4b206" class="image"><a href="unpolished/IMG_4560.heic"><img src="unpolished/IMG_4560.heic"/></a><figcaption>config friends!</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-809b-a5ce-d65a12301c11" class="image"><a href="unpolished/IMG_9777.heic"><img src="unpolished/IMG_9777.heic"/></a><figcaption>design is too trendy now</figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8054-92e6-ea7ac1adb716"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8094-83e9-f29edbe57cd4" class="image"><a href="unpolished/B3A74389-D4AF-49FA-9CD0-044C9460B7B0.jpg"><img style="width:514.4921875px" src="unpolished/B3A74389-D4AF-49FA-9CD0-044C9460B7B0.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-8061-80a4-df83e56d064f" class="image"><a href="unpolished/2A1F1E36-2441-41E7-8FE2-8367A0739123.jpg"><img style="width:514.4921875px" src="unpolished/2A1F1E36-2441-41E7-8FE2-8367A0739123.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-8058-9572-e0b7c7e41075" class="image"><a href="unpolished/D0D1953C-EDE2-455A-9FAA-60A1271AC8E3.jpg"><img style="width:514.4921875px" src="unpolished/D0D1953C-EDE2-455A-9FAA-60A1271AC8E3.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8083-879d-dc8bf0cc93c5"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-80f7-bdeb-c314ff2c8e5a" class="image"><a href="unpolished/7d3f201c-8602-401a-b4fd-5adc4da3ca6e.png"><img style="width:453.2577903682719px" src="unpolished/7d3f201c-8602-401a-b4fd-5adc4da3ca6e.png"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-80f2-9ba1-e252ec4a92eb"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-809f-9e75-c3dc69f9c29c" class="image"><a href="unpolished/C8462A99-351E-4891-8883-E46223668E5E.jpg"><img style="width:514.4921875px" src="unpolished/C8462A99-351E-4891-8883-E46223668E5E.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-80eb-a33e-cfc44032313a"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-8068-8b72-e4d855635d0f" class="image"><a href="unpolished/D2297773-74B1-482B-8120-92ADBF50B69A_2.jpg"><img style="width:462.328125px" src="unpolished/D2297773-74B1-482B-8120-92ADBF50B69A_2.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-80ea-bbfe-eed555bc665b" class="image"><a href="unpolished/ACS_0106.jpg"><img style="width:4032px" src="unpolished/ACS_0106.jpg"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="204459ad-1b23-8032-9276-d4f930fc38ca"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="204459ad-1b23-807e-881b-d672a8a40373" class="image"><a href="unpolished/IMG_6859.heic"><img style="width:2448px" src="unpolished/IMG_6859.heic"/></a></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8013-a898-e62571748a0c"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-80d2-add3-cf8c355445eb" class="image"><a href="unpolished/IMG_E2246.jpg"><img style="width:2446px" src="unpolished/IMG_E2246.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-8075-b09c-eb4afb6b2e73" class="image"><a href="unpolished/IMG_3016.jpg"><img style="width:462.3203125px" src="unpolished/IMG_3016.jpg"/></a><figcaption>i was freer in 2015</figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="1fb459ad-1b23-8097-9ea5-d46040d23298"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8036-ad8b-cf0deafa3fcd" class="image"><a href="unpolished/IMG_8549.heic"><img src="unpolished/IMG_8549.heic"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="1fb459ad-1b23-803b-8d47-ff5d5c29f14d" class="image"><a href="unpolished/IMG_E3134.jpg"><img style="width:2448px" src="unpolished/IMG_E3134.jpg"/></a><figcaption>2016 - big ben is actually big</figcaption></figure></div></div></figure></div><div style="display:contents" dir="ltr"><figure class="block-color-default_background callout" style="white-space:pre-wrap;display:flex" id="2e9459ad-1b23-8045-ad18-f5e1eee59756"><div style="width:100%"><div style="display:contents" dir="ltr"><figure id="2e9459ad-1b23-8094-a69a-e490dd3af564" class="image"><a href="unpolished/IMG_E2096.jpg"><img style="width:2448px" src="unpolished/IMG_E2096.jpg"/></a></figure></div><div style="display:contents" dir="ltr"><figure id="2ea459ad-1b23-8013-8fd7-e0bb32046a53" class="image"><a href="unpolished/0fd73579-c36c-46af-8302-129e0730249b.png"><img style="width:271.4358712314767px" src="unpolished/0fd73579-c36c-46af-8302-129e0730249b.png"/></a><figcaption>^where i eat most in asia </figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-80ad-ab39-fa2a0866d1a0" class="image"><a href="unpolished/IMG_4153.heic"><img src="unpolished/IMG_4153.heic"/></a><figcaption>ilysm 7/11</figcaption></figure></div><div style="display:contents" dir="ltr"><figure id="2ee459ad-1b23-8034-8375-f2ae3bd0ed06" class="image"><a href="unpolished/IMG_4824.png"><img style="width:521.15625px" src="unpolished/IMG_4824.png"/></a><figcaption>ah yes, “attack attack pyro power” - but of course</figcaption></figure></div></div></figure></div><div style="display:contents" dir="auto"><p id="2ea459ad-1b23-800a-af1f-cea26b0d1286" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2e9459ad-1b23-8040-b119-c6e0611074e0" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2e9459ad-1b23-800c-bf1d-f48d509863e4" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><hr id="1fb459ad-1b23-81a6-8904-c5850a639493"/></div><div style="display:contents" dir="auto"><div id="1ff459ad-1b23-8022-9334-fa83a3aa381b" class="column-list"><div style="display:contents" dir="auto"><div id="1ff459ad-1b23-807a-ba0a-db340e6fb29a" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="1ff459ad-1b23-80b3-ba34-ed9226e8ee7a"><div class="source"><a href="https://vimeo.com/1086926147/c038a63027?ts=0&amp;share=copy">https://vimeo.com/1086926147/c038a63027?ts=0&amp;share=copy</a></div></figure></div><div style="display:contents" dir="auto"><p id="1ff459ad-1b23-8029-8b64-d27156da2b80" class="">me at 2am usually</p></div></div></div><div style="display:contents" dir="auto"><div id="1ff459ad-1b23-8052-b1d4-e556007f7dba" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="1ff459ad-1b23-80af-9efc-d9357ac12276"><div class="source"><a href="https://vimeo.com/1086911105/4419ba68f5?share=copy">https://vimeo.com/1086911105/4419ba68f5?share=copy</a></div><figcaption>the shaky camera adds to this</figcaption></figure></div><div style="display:contents" dir="auto"><p id="1ff459ad-1b23-805c-a945-d5323ad29d35" class="">
+</p></div></div></div><div style="display:contents" dir="auto"><div id="1ff459ad-1b23-8092-a76f-e644616b6abb" style="width:100%" class="column"><div style="display:contents" dir="ltr"><figure id="1ff459ad-1b23-80a7-bb4b-ccaf69b89b72"><div class="source"><a href="https://www.notion.sohttp://&lt;div style=&quot;padding:100% 0 0 0;position:relative;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/1086926147?h=c038a63027&amp;amp;badge=0&amp;amp;autopause=0&amp;amp;player_id=0&amp;amp;app_id=58479&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media&quot; style=&quot;position:absolute;top:0;left:0;width:100%;height:100%;&quot; title=&quot;Automatic&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;script src=&quot;https://player.vimeo.com/api/player.js&quot;&gt;&lt;/script&gt;">http://&lt;div style=&quot;padding:100% 0 0 0;position:relative;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/1086926147?h=c038a63027&amp;amp;badge=0&amp;amp;autopause=0&amp;amp;player_id=0&amp;amp;app_id=58479&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media&quot; style=&quot;position:absolute;top:0;left:0;width:100%;height:100%;&quot; title=&quot;Automatic&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;script src=&quot;https://player.vimeo.com/api/player.js&quot;&gt;&lt;/script&gt;</a></div><figcaption>i didn’t even edit out the chaos on this one</figcaption></figure></div><div style="display:contents" dir="auto"><p id="1ff459ad-1b23-805a-b313-c04895c536b5" class="">
+</p></div></div></div></div></div><div style="display:contents" dir="auto"><p id="204459ad-1b23-80e0-a913-d50e8d82acdb" class="">
+</p></div><div style="display:contents" dir="auto"><p id="204459ad-1b23-8057-a55f-d75b4d432145" class="">
+</p></div><div style="display:contents" dir="auto"><p id="204459ad-1b23-80dd-80ce-c261e504f2eb" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="204459ad-1b23-806b-a1d5-d96a20718370"/></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
